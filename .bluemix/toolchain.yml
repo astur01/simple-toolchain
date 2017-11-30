@@ -26,13 +26,10 @@ services:
     service_id: githubpublic
     parameters:
       repo_name: '{{toolchain.name}}'
-      repo_url: '${SAMPLE_REPO_URL}'
+      repo_url: '{{form.pipeline.parameters.sample_repo_url}}'
       type: clone
       has_issues: true
       enable_traceability: true
-      configuration:
-        env:
-          SAMPLE_REPO_URL: '{{form.pipeline.parameters.sample_repo_url}}'        
   sample-build:
     service_id: pipeline
     parameters:
