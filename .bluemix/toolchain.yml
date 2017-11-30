@@ -26,10 +26,13 @@ services:
     service_id: githubpublic
     parameters:
       repo_name: '{{toolchain.name}}'
-      repo_url: 'https://github.com/open-toolchain/node-hello-world'
+      repo_url: '${SAMPLE_REPO_URL}'
       type: clone
       has_issues: true
       enable_traceability: true
+      configuration:
+        env:
+          SAMPLE_REPO_URL: '{{form.pipeline.parameters.sample_repo_url}}'        
   sample-build:
     service_id: pipeline
     parameters:
@@ -58,3 +61,6 @@ form:
       prod-app-name: '{{services.sample-repo.parameters.repo_name}}'
     schema:
       $ref: deploy.json
+  githubpublic:
+    parameters:
+      sample-repo-url: 'https://github.com/open-toolchain/node-hello-world'      
