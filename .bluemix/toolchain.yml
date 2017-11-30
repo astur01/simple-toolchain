@@ -13,9 +13,9 @@ template:
     - sample-repo
   info:
     git url: >-
-      [https://github.com/open-toolchain/simple-toolchain](https://github.com/open-toolchain/simple-toolchain)
+      [https://github.com/astur01/simple-toolchain](https://github.com/astur01/simple-toolchain)
     git branch: >-
-      [master](https://github.com/open-toolchain/simple-toolchain/tree/master)
+      [master](https://github.com/astur01/simple-toolchain/tree/master)
 toolchain:
   name: 'simple-toolchain-{{timestamp}}'
   template:
@@ -49,6 +49,9 @@ services:
         execute: true
   webide:
     service_id: orion
+  messaging:
+    service_id: slack
+    $ref: slack.yml    
 form:
   pipeline:
     parameters:
