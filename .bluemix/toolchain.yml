@@ -64,3 +64,5 @@ form:
   githubpublic:
     parameters:
       sample-repo-url: 'https://github.com/open-toolchain/node-hello-world'      
+    schema:
+      $ref: repoDeploy.json
